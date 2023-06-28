@@ -10,5 +10,5 @@ try:
     print("Given expression is a valid regex")
  
 except re.error:
-    print("Non valid regex pattern")
+    print("The Pattern is not a valid regex expression.")
     exit()
