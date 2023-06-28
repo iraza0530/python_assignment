@@ -1,3 +1,5 @@
+## Write a script to find duplicate files which have the same size and content.
+
 import os
 import filecmp  
 
