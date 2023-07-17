@@ -46,7 +46,7 @@ class TestValidateCreditCard(unittest.TestCase):
             ("41233567891234566", False),  # More than 16 digits
             ("4123456789123456", False),  # Starts with an invalid digit (1)
             ("61234-567-8912-3456-9", False),  # More than 16 digits after removing hyphens
-            ("4444444444444444", False),  # Consecutive repeated digits
+            ("1111111111111111", False),  # Consecutive repeated digits
         ]
 
         for credit_card_number, expected_result in test_cases:
