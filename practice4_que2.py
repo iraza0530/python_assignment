@@ -1,3 +1,6 @@
+import unittest
+
+
 def sort_alphanumeric(string):
     lowercase_letters = []
     uppercase_letters = []
@@ -29,29 +32,31 @@ print(sort_alphanumeric(input_string))
 
 
 # Unit tests
-def unit_tests():
-    input_str = "HelloWorld1234"
-    expected_output = "dellloorHW1324"
-    assert sort_alphanumeric(input_str) == expected_output, f"Test case 1 failed"
-    
-    input_str = ""
-    expected_output = ""
-    assert sort_alphanumeric(input_str) == expected_output, f"Test case 2 failed"
-    
-    input_str = "dcba"
-    expected_output = "abcd"
-    assert sort_alphanumeric(input_str) == expected_output, f"Test case 3 failed"
-    
-    input_str = "DCBA"
-    expected_output = "ABCD"
-    assert sort_alphanumeric(input_str) == expected_output, f"Test case 4 failed"
-    
-    input_str = "987654321"
-    expected_output = "135792468"
-    assert sort_alphanumeric(input_str) == expected_output, f"Test case 5 failed"
-    
-    print("All test cases passed successfully!")
+
+class TestSortAlphanumericString(unittest.TestCase):
+    def unit_tests():
+        input_str = "HelloWorld1234"
+        expected_output = "dellloorHW1324"
+        assert sort_alphanumeric(input_str) == expected_output, f"Test case 1 failed"
+        
+        input_str = ""
+        expected_output = ""
+        assert sort_alphanumeric(input_str) == expected_output, f"Test case 2 failed"
+        
+        input_str = "dcba"
+        expected_output = "abcd"
+        assert sort_alphanumeric(input_str) == expected_output, f"Test case 3 failed"
+        
+        input_str = "DCBA"
+        expected_output = "ABCD"
+        assert sort_alphanumeric(input_str) == expected_output, f"Test case 4 failed"
+        
+        input_str = "987654321"
+        expected_output = "135792468"
+        assert sort_alphanumeric(input_str) == expected_output, f"Test case 5 failed"
+        
+        print("All test cases passed successfully!")
 
 
 # Run unit tests
-unit_tests()
+unittest.main()
