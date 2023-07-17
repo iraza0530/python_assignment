@@ -1,4 +1,5 @@
 import re
+import unittest
 
 def validate_credit_card(credit_card_number):
     # Remove hyphens from the card number
@@ -28,27 +29,30 @@ input_credit_card_number = input("  Enter 16 digit Credit Card Number...")
 print(validate_credit_card(input_credit_card_number))
 
 # Unit test cases
-def run_unit_tests():
-    test_cases = [
-        # Valid card numbers
-        ("4567-1234-5678-9012", True),
-        ("4567123456789012", True),
-        ("61234-567-8912-3456", True),
-        ("4123356789123456", True),
-        ("412356789123456", False),  # Less than 16 digits
-        ("5123-4567-8912-3456-", False),  # Invalid separator
-        ("5123-4567-8912-3456-D", False),  # Invalid separator
-        ("5123@4567@8912@3456", False),  # Invalid separator
-        ("41233567891234566", False),  # More than 16 digits
-        ("4123456789123456", False),  # Starts with an invalid digit (1)
-        ("61234-567-8912-3456-9", False),  # More than 16 digits after removing hyphens
-        ("4444444444444444", False),  # Consecutive repeated digits
-    ]
 
-    for credit_card_number, expected_result in test_cases:
-        result = validate_credit_card(credit_card_number)
-        assert result == expected_result
-        print(f"Card Number: {credit_card_number}, Valid: {result}")
+
+class TestValidateCreditCard(unittest.TestCase):
+    def run_unit_tests():
+        test_cases = [
+            # Valid card numbers
+            ("4567-1234-5678-9012", True),
+            ("4567123456789012", True),
+            ("61234-567-8912-3456", True),
+            ("4123356789123456", True),
+            ("412356789123456", False),  # Less than 16 digits
+            ("5123-4567-8912-3456-", False),  # Invalid separator
+            ("5123-4567-8912-3456-D", False),  # Invalid separator
+            ("5123@4567@8912@3456", False),  # Invalid separator
+            ("41233567891234566", False),  # More than 16 digits
+            ("4123456789123456", False),  # Starts with an invalid digit (1)
+            ("61234-567-8912-3456-9", False),  # More than 16 digits after removing hyphens
+            ("4444444444444444", False),  # Consecutive repeated digits
+        ]
+
+        for credit_card_number, expected_result in test_cases:
+            result = validate_credit_card(credit_card_number)
+            assert result == expected_result
+            print(f"Card Number: {credit_card_number}, Valid: {result}")
 
 # run unit test cases
-run_unit_tests()
+unittest.main()
